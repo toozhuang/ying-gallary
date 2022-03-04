@@ -10,6 +10,11 @@ const routes = [
     key: 'gallery',
     name: 'Gallery',
   },
+  {
+    path: '/gallery/:id',
+    key: 'gallery-detail',
+    name: 'GalleryDetail',
+  },
 ];
 
 export default routes;

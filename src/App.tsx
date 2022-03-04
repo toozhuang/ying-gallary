@@ -5,6 +5,7 @@ import LayoutPage from './components/layout';
 import { Routes, Route, Link } from 'react-router-dom';
 import { Button, Result } from 'antd';
 import GalleryList from './pages/gallery';
+import GalleryDetail from './pages/gallery/detail';
 
 const App = () => {
   return (
@@ -12,8 +13,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<LayoutPage />}>
           <Route index element={<div>我是什么</div>} />
-          <Route path="/gallery" element={<GalleryList />} />
-          {/*<Route path="/sneakers/:id" element={<SneakerView />} />*/}
+          <Route path="/gallery" element={<GalleryList />}></Route>
+          <Route path="/gallery/:movieId" element={<GalleryDetail />} />
           <Route
             path="*"
             element={
