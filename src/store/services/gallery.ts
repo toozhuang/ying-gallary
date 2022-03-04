@@ -6,13 +6,33 @@
  */
 
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { IMovie } from './dto/movie.interface';
+
+interface IMovieDB {
+  createTime: string;
+  version: number;
+  database: IMovie[];
+}
 
 export const galleryApi = createApi({
   reducerPath: 'galleryApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/' }),
+  tagTypes: ['Gallery'],
   endpoints: (build) => ({
-    getGallery: build.query<any, void>({
-      query: () => 'gallery/all',
+    getGallery: build.query<IMovie[], void>({
+      query: () => ({
+        url: 'gallery/all',
+      }),
+      transformResponse: (response: IMovieDB) => {
+        return response.database;
+      },
+      providesTags: (result) =>
+        result
+          ? [
+              ...result.map(({ id }) => ({ type: 'Gallery' as const, id })),
+              { type: 'Gallery', id: 'LIST' },
+            ]
+          : [{ type: 'Gallery', id: 'LIST' }],
     }),
   }),
 });

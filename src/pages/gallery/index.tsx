@@ -4,9 +4,24 @@
  * feature： Movie Gallery 列表页面
  */
 import * as React from 'react';
+import { useGetGalleryQuery } from '../../store/services/gallery';
+import GalleryCard from '../../components/gallery-card';
 
 const GalleryList = () => {
-  return <div>老子就是精纵横江湖的Gallery</div>;
+  const { data, isLoading } = useGetGalleryQuery();
+
+  if (isLoading) {
+    return <div>loading </div>;
+  }
+
+  if (!data) {
+    return <div>no data</div>;
+  }
+  return (
+    <div>
+      <GalleryCard movieDetail={data[0]} type={false} />
+    </div>
+  );
 };
 
 export default GalleryList;
