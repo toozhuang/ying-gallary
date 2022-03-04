@@ -5,6 +5,8 @@
  */
 
 import React, { useState } from 'react';
+
+import logo from '../../logo_2x.png';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import {
   DesktopOutlined,
@@ -29,12 +31,16 @@ const LayoutPage = () => {
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
-        <div className="logo" />
+        <img
+          src={logo}
+          alt=""
+          style={{ width: '30px', marginTop: '20px', marginLeft: !collapsed ? '-135px' : 0 }}
+        />
         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
           {routes.map((item) => {
             return (
               <Menu.Item key={item.key} icon={<PieChartOutlined />}>
-                <Link to="/invoices">{item.name}</Link>
+                <Link to={item.path}>{item.name}</Link>
               </Menu.Item>
             );
           })}

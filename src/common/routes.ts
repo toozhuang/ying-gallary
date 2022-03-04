@@ -6,7 +6,7 @@
 
 const routes = [
   {
-    path: '/',
+    path: '/gallery',
     key: 'gallery',
     name: 'Gallery',
   },
