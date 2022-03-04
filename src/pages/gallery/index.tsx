@@ -6,6 +6,10 @@
 import * as React from 'react';
 import { useGetGalleryQuery } from '../../store/services/gallery';
 import GalleryCard from '../../components/gallery-card';
+import { IMovie } from '../../store/services/dto/movie.interface';
+import { Col, Row } from 'antd';
+
+const style = { background: 'inherit', padding: '8px 0', borderRadius: '20px' };
 
 const GalleryList = () => {
   const { data, isLoading } = useGetGalleryQuery();
@@ -19,7 +23,15 @@ const GalleryList = () => {
   }
   return (
     <div>
-      <GalleryCard movieDetail={data[0]} type={false} />
+      <Row gutter={16}>
+        {data.map((movie: IMovie) => {
+          return (
+            <Col className="gutter-row" style={style} key={movie.id} span={4}>
+              <GalleryCard key={movie.id} movieDetail={movie} type={false} />
+            </Col>
+          );
+        })}
+      </Row>
     </div>
   );
 };
