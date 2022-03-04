@@ -8,18 +8,12 @@ import React, { useState } from 'react';
 
 import logo from '../../logo_2x.png';
 import { Layout, Menu, Breadcrumb } from 'antd';
-import {
-  DesktopOutlined,
-  PieChartOutlined,
-  FileOutlined,
-  TeamOutlined,
-  UserOutlined,
-} from '@ant-design/icons';
+import { PieChartOutlined } from '@ant-design/icons';
 import { Outlet, Link } from 'react-router-dom';
 import routes from '../../common/routes';
 
 const { Header, Content, Footer, Sider } = Layout;
-const { SubMenu } = Menu;
+// const { SubMenu } = Menu;
 
 const LayoutPage = () => {
   const [collapsed, setCollapse] = useState<boolean>(false);
