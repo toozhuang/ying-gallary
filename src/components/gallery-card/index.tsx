@@ -21,7 +21,6 @@ export interface IGalleryCard {
 
 const GalleryCard = (props: IGalleryCard) => {
   const { movieDetail: movie } = props;
-  console.log(movie.thumb[0]);
   return (
     <Card
       hoverable

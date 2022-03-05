@@ -13,7 +13,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<LayoutPage />}>
           <Route index element={<div>我是什么</div>} />
-          <Route path="/gallery" element={<GalleryList />}></Route>
+          <Route path="/gallery" element={<GalleryList />} />
           <Route path="/gallery/:movieId" element={<GalleryDetail />} />
           <Route
             path="*"

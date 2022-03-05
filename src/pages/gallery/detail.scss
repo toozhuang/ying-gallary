@@ -1,0 +1,30 @@
+.gallery-detail-fanart-container{
+  position: relative;
+  .description-container{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    min-height: 200px;
+    div{
+      position: absolute;
+      bottom: 0;
+      min-height: 200px;
+      width:100%;
+      z-index: 2;
+    }
+
+  }
+  .description-container:after{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    background: white;
+    opacity: 0.2;
+    height:100%;
+    filter:blur(10px);
+    z-index:1;
+    background-size:cover;
+  }
+}

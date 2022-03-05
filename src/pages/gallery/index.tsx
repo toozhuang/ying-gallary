@@ -23,7 +23,7 @@ const GalleryList = () => {
   }
 
   return (
-    <div>
+    <div style={{ margin: '0 16px' }}>
       <Row gutter={16}>
         {data.map((movie: IMovie) => {
           return (
