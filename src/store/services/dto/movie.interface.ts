@@ -27,7 +27,7 @@ export interface IMovie {
   watched: boolean;
   playcount: string;
   lastplayed: string;
-  genre: string;
+  genre: string[];
   studio: string[];
   credits: string[];
   director: string;
