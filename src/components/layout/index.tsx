@@ -28,9 +28,14 @@ const LayoutPage = () => {
         <img
           src={logo}
           alt=""
-          style={{ width: '30px', marginTop: '20px', marginLeft: !collapsed ? '-135px' : 0 }}
+          style={{
+            width: '30px',
+            marginTop: '20px',
+            marginBottom: '10px',
+            marginLeft: !collapsed ? '-135px' : 0,
+          }}
         />
-        <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+        <Menu theme="dark" defaultSelectedKeys={['gallery']} mode="inline">
           {routes
             .filter((item) => item.display)
             .map((item) => {

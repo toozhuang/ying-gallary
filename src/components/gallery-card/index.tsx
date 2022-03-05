@@ -28,6 +28,7 @@ const GalleryCard = (props: IGalleryCard) => {
       cover={
         <Image
           alt={movie.title}
+          preview={false}
           width={'100%'}
           height={'350px'}
           src={movie.thumb[0]}

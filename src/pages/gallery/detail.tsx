@@ -5,12 +5,21 @@
  */
 
 import React from 'react';
-import { useLocation, useParams, useSearchParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { useGetGalleryItemQuery } from '../../store/services/gallery';
+import { Spin } from 'antd';
 
-const Detail = (props: any) => {
-  const rr = useParams();
-  console.log(rr);
-  return <div></div>;
+const GalleryDetail = () => {
+  const { movieId } = useParams();
+  const { data, isLoading } = useGetGalleryItemQuery(movieId as string);
+  // console.log(data);
+  if (isLoading) {
+    return <Spin size="large" />;
+  } else {
+    return <div>{data?.title}</div>;
+  }
 };
 
-export default Detail;
+GalleryDetail.displayName = 'Gallery detail Component';
+
+export default GalleryDetail;

@@ -14,6 +14,11 @@ interface IMovieDB {
   database: IMovie[];
 }
 
+interface IMovieDBResponse {
+  code: number;
+  data?: IMovie;
+}
+
 export const galleryApi = createApi({
   reducerPath: 'galleryApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/' }),
@@ -34,7 +39,16 @@ export const galleryApi = createApi({
             ]
           : [{ type: 'Gallery', id: 'LIST' }],
     }),
+    getGalleryItem: build.query<IMovie | undefined, string>({
+      query: (id) => `gallery/${id}`,
+      transformResponse: (response: IMovieDBResponse) => {
+        return response.data ? response.data : undefined;
+      },
+      providesTags: (result, error, id) => {
+        return result ? [{ type: 'Gallery', id }] : [{ type: 'Gallery', id: 'GalleryItem' }];
+      },
+    }),
   }),
 });
 
-export const { useGetGalleryQuery } = galleryApi;
+export const { useGetGalleryQuery, useGetGalleryItemQuery } = galleryApi;

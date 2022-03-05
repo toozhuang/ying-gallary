@@ -14,6 +14,7 @@ export const createStore = () => {
       [galleryApi.reducerPath]: galleryApi.reducer,
     },
     //   TODO: 理解 middleware 的作用
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(galleryApi.middleware),
   });
 };
 
