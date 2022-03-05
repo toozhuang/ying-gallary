@@ -7,7 +7,7 @@
 import React, { useState } from 'react';
 
 import logo from '../../logo_2x.png';
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout, Menu } from 'antd'; //Breadcrumb
 import { PieChartOutlined } from '@ant-design/icons';
 import { Outlet, Link } from 'react-router-dom';
 import routes from '../../common/routes';
@@ -31,13 +31,15 @@ const LayoutPage = () => {
           style={{ width: '30px', marginTop: '20px', marginLeft: !collapsed ? '-135px' : 0 }}
         />
         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-          {routes.map((item) => {
-            return (
-              <Menu.Item key={item.key} icon={<PieChartOutlined />}>
-                <Link to={item.path}>{item.name}</Link>
-              </Menu.Item>
-            );
-          })}
+          {routes
+            .filter((item) => item.display)
+            .map((item) => {
+              return (
+                <Menu.Item key={item.key} icon={<PieChartOutlined />}>
+                  <Link to={item.path}>{item.name}</Link>
+                </Menu.Item>
+              );
+            })}
           {/*<Menu.Item key="1" icon={<PieChartOutlined />}>*/}
           {/*  Option 1*/}
           {/*</Menu.Item>*/}

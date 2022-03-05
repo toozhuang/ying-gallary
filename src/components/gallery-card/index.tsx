@@ -7,6 +7,9 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { IMovie } from '../../store/services/dto/movie.interface';
 import { Card, Image } from 'antd';
+import { Link } from 'react-router-dom';
+
+import './galleryCard.scss';
 
 const { Meta } = Card;
 
@@ -32,7 +35,13 @@ const GalleryCard = (props: IGalleryCard) => {
         />
       }
     >
-      <Meta title={movie.title} />
+      <Meta
+        title={
+          <div>
+            <Link to={`/gallery/${movie.id}`}> {movie.title}</Link>
+          </div>
+        }
+      />
     </Card>
   );
   // <div>{movie.title}</div>;

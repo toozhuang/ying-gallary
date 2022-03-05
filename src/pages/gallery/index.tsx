@@ -7,9 +7,7 @@ import React from 'react';
 import { useGetGalleryQuery } from '../../store/services/gallery';
 import GalleryCard from '../../components/gallery-card';
 import { IMovie } from '../../store/services/dto/movie.interface';
-import { Button, Col, Modal, Row } from 'antd';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Col, Row } from 'antd';
 
 const style = { background: 'inherit', padding: '8px 0', borderRadius: '20px' };
 
@@ -31,9 +29,6 @@ const GalleryList = () => {
           return (
             <Col className="gutter-row" style={style} key={movie.id} span={4}>
               <GalleryCard key={movie.id} movieDetail={movie} type={false} />
-              <Button>
-                <Link to={`/gallery/${movie.id}`}> 返回主页面</Link>
-              </Button>
             </Col>
           );
         })}

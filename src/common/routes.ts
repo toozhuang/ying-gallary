@@ -9,11 +9,13 @@ const routes = [
     path: '/gallery',
     key: 'gallery',
     name: 'Gallery',
+    display: true,
   },
   {
     path: '/gallery/:id',
     key: 'gallery-detail',
     name: 'GalleryDetail',
+    display: false,
   },
 ];
 
