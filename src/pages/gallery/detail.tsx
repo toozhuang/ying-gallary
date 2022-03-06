@@ -34,8 +34,9 @@ const GalleryDetail = () => {
                 <div className="description-area">
                   <div className="title">{data?.title}</div>
                   <div className="spec-container">
+                    <div>{data?.ratings?.rating[0].value.toFixed(1)}</div>
+                    <div>{timeConvert(data?.runtime)}</div>
                     <div>{data?.certification}</div>
-                    <div>{data?.runtime}</div>
                     <div>{data?.genre.map((item) => item)}</div>
                   </div>
                   <div className="plot">{data?.plot}</div>
@@ -48,6 +49,15 @@ const GalleryDetail = () => {
     );
   }
 };
+
+function timeConvert(n: any) {
+  const num = n;
+  const hours = num / 60;
+  const rhours = Math.floor(hours);
+  const minutes = (hours - rhours) * 60;
+  const rminutes = Math.round(minutes);
+  return rhours + ' hrs ' + rminutes + ' min';
+}
 
 GalleryDetail.displayName = 'Gallery detail Component';
 

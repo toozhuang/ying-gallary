@@ -9,7 +9,7 @@
     bottom: 0;
     width: 100%;
     min-height: 200px;
-    z-index: 2;
+    z-index: 10;
 
     .action-area{
       padding-top: 20px;
@@ -31,6 +31,11 @@
       color: white;
       .spec-container{
         display: flex;
+        div{
+          margin-right: 10px;
+          color: #9fa9ac;
+          font-weight: 550;
+        }
       }
       .title{
         text-align: left;
@@ -49,8 +54,8 @@
     top: 0;
     left: 0;
     width: 100%;
-    background: white;
-    opacity: 0.2;
+    background: white ;
+    opacity: 0.7;
     height: 100%;
     filter: blur(10px);
     z-index: 1;
