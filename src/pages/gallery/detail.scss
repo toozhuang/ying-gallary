@@ -1,5 +1,8 @@
 .gallery-detail-fanart-container {
   position: relative;
+  .ant-image{
+    width: 100%;
+  }
 
   .description-container {
     position: absolute;
@@ -25,11 +28,17 @@
     }
 
     .description-area{
+      color: white;
+      .spec-container{
+        display: flex;
+      }
       .title{
         text-align: left;
         font-weight: 500;
         font-size: 30px;
-        color: white;
+      }
+      .plot{
+
       }
     }
   }

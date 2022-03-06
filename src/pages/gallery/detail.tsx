@@ -21,7 +21,7 @@ const GalleryDetail = () => {
     return (
       <div>
         <div className="gallery-detail-fanart-container">
-          <Image preview={false} src={(data as IMovie).fanart.thumb} />
+          <Image style={{ width: '100%' }} preview={false} src={(data as IMovie).fanart.thumb} />
           <div className="description-container">
             <Row>
               <Col span={6}>
@@ -33,10 +33,12 @@ const GalleryDetail = () => {
               <Col span={18}>
                 <div className="description-area">
                   <div className="title">{data?.title}</div>
-                  <div>{data?.plot}</div>
-                  <div>{data?.certification}</div>
-                  <div>{data?.runtime}</div>
-                  <div>{data?.genre.map((item) => item)}</div>
+                  <div className="spec-container">
+                    <div>{data?.certification}</div>
+                    <div>{data?.runtime}</div>
+                    <div>{data?.genre.map((item) => item)}</div>
+                  </div>
+                  <div className="plot">{data?.plot}</div>
                 </div>
               </Col>
             </Row>
