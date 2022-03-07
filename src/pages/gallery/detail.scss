@@ -1,6 +1,7 @@
 .gallery-detail-fanart-container {
   position: relative;
-  .ant-image{
+
+  .ant-image {
     width: 100%;
   }
 
@@ -11,39 +12,50 @@
     min-height: 200px;
     z-index: 10;
 
-    .action-area{
+    .ant-row {
+      position: absolute;
+      z-index: 12;
+    }
+
+    .action-area {
+
       padding-top: 20px;
       display: flex;
       flex-direction: column;
       width: 80%;
       align-items: center;
 
-      Button{
-        width: 180px;
-        margin-bottom: 10px ;
+      Button {
+        width: 230px;
+        height: 40px;
+        margin-bottom: 15px;
         border-radius: 5px;
         font-size: 15px;
         font-weight: 550;
       }
     }
 
-    .description-area{
+    .description-area {
       color: white;
-      .spec-container{
+
+      .spec-container {
         display: flex;
-        div{
+
+        div {
           margin-right: 10px;
-          color: #9fa9ac;
+          color: #a6afb1;
           font-weight: 550;
         }
       }
-      .title{
+
+      .title {
         text-align: left;
         font-weight: 500;
         font-size: 30px;
       }
-      .plot{
 
+      .plot {
+        text-align: left;
       }
     }
   }
@@ -54,7 +66,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    background: white ;
+    background: #7d8378;
     opacity: 0.7;
     height: 100%;
     filter: blur(10px);
