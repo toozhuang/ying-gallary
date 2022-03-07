@@ -1,0 +1,16 @@
+.profile-card {
+  .ant-card {
+    margin-top: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+
+    .ant-card-meta{
+      .ant-card-meta-title{
+        font-size: 12px;
+      }
+      font-size: 12px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+}

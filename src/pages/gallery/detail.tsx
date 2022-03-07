@@ -50,7 +50,7 @@ const GalleryDetail = () => {
             </Row>
           </div>
         </div>
-        <div className="actors-container">
+        <div className="gallery-actors-container">
           {casterAndCrew.map((item, index) => {
             return <ProfileCard key={index} profile={item} />;
           })}
