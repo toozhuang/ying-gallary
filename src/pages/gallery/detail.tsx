@@ -11,13 +11,18 @@ import { Button, Col, Image, Row, Spin } from 'antd';
 import { IMovie } from '../../store/services/dto/movie.interface';
 
 import './detail.scss';
+import ProfileCard from '../../components/profile-card';
 
 const GalleryDetail = () => {
   const { movieId } = useParams();
   const { data, isLoading } = useGetGalleryItemQuery(movieId as string);
   if (isLoading) {
     return <Spin size="large" />;
-  } else {
+  } else if (data) {
+    const actors: any[] = data.actor.slice(0, 14);
+    const crew: any[] = data.producer.slice(0, 3);
+    const casterAndCrew = actors?.concat(crew);
+
     return (
       <div>
         <div className="gallery-detail-fanart-container">
@@ -45,8 +50,15 @@ const GalleryDetail = () => {
             </Row>
           </div>
         </div>
+        <div className="actors-container">
+          {casterAndCrew.map((item, index) => {
+            return <ProfileCard key={index} profile={item} />;
+          })}
+        </div>
       </div>
     );
+  } else {
+    return <div></div>;
   }
 };
 
