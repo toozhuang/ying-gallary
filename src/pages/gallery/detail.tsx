@@ -4,7 +4,7 @@
  * feature： Gallary movie Detail Page
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useGetGalleryItemQuery } from '../../store/services/gallery';
 import { Button, Col, Image, Row, Spin } from 'antd';
@@ -12,9 +12,14 @@ import { IMovie } from '../../store/services/dto/movie.interface';
 
 import './detail.scss';
 import ProfileCard from '../../components/profile-card';
+import GalleryModal from '../../components/gallery-modal';
 
 const GalleryDetail = () => {
   const { movieId } = useParams();
+  const [isModalVisible, setModalVisible] = useState(false);
+  const setModalStatus = (status: boolean) => {
+    setModalVisible(status);
+  };
   const { data, isLoading } = useGetGalleryItemQuery(movieId as string);
   if (isLoading) {
     return <Spin size="large" />;
@@ -26,6 +31,11 @@ const GalleryDetail = () => {
     return (
       <div>
         <div className="gallery-detail-fanart-container">
+          <div className="edit-container" onClick={() => setModalVisible(!isModalVisible)}>
+            {' '}
+            Edit
+          </div>
+          <GalleryModal isModalVisible={isModalVisible} triggerModal={setModalStatus} />
           <Image style={{ width: '100%' }} preview={false} src={(data as IMovie).fanart.thumb} />
           <div className="description-container">
             <Row>
@@ -42,7 +52,7 @@ const GalleryDetail = () => {
                     <div>{data?.ratings?.rating[0].value.toFixed(1)}</div>
                     <div>{timeConvert(data?.runtime)}</div>
                     <div>{data?.certification}</div>
-                    <div>{data?.genre.map((item) => item)}</div>
+                    <div>{Array.isArray(data?.genre) && data?.genre?.map((item) => item)}</div>
                   </div>
                   <div className="plot">{data?.plot}</div>
                 </div>

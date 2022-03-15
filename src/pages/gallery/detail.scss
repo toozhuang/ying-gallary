@@ -1,6 +1,17 @@
 .gallery-detail-fanart-container {
   position: relative;
 
+  .edit-container{
+    color: black;
+    position: absolute;
+    right: 10px;
+    z-index: 100;
+    font-weight: 600;
+    font-size: 20px;
+    font-family: monospace;
+    cursor: pointer;
+  }
+
   .ant-image {
     width: 100%;
   }
