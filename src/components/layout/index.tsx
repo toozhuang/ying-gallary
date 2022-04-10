@@ -5,15 +5,15 @@
  */
 
 import React, { useState } from 'react';
+import { Outlet, Link } from 'react-router-dom';
 
 import logo from '../../logo_2x.png';
 import { Layout, Menu } from 'antd'; //Breadcrumb
-import { PieChartOutlined } from '@ant-design/icons';
-import { Outlet, Link } from 'react-router-dom';
+
 import routes from '../../common/routes';
 
 const { Header, Content, Footer, Sider } = Layout;
-// const { SubMenu } = Menu;
+const { SubMenu } = Menu;
 
 const LayoutPage = () => {
   const [collapsed, setCollapse] = useState<boolean>(false);
@@ -39,8 +39,18 @@ const LayoutPage = () => {
           {routes
             .filter((item) => item.display)
             .map((item) => {
-              return (
-                <Menu.Item key={item.key} icon={<PieChartOutlined />}>
+              return item.hasSubMenu ? (
+                <SubMenu key={item.key} icon={item.icons} title={item.name}>
+                  {item.subMenus.map((subItem) => {
+                    return (
+                      <Menu.Item key={subItem.key} icon={subItem.icons}>
+                        <Link to={subItem.path}>{subItem.name}</Link>
+                      </Menu.Item>
+                    );
+                  })}
+                </SubMenu>
+              ) : (
+                <Menu.Item key={item.key} icon={item.icons}>
                   <Link to={item.path}>{item.name}</Link>
                 </Menu.Item>
               );

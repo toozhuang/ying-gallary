@@ -6,6 +6,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import { Button, Result } from 'antd';
 import GalleryList from './pages/gallery';
 import GalleryDetail from './pages/gallery/detail';
+import { Setting } from './pages/setting';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
           <Route index element={<div>我是什么</div>} />
           <Route path="/gallery" element={<GalleryList />} />
           <Route path="/gallery/:movieId" element={<GalleryDetail />} />
+          <Route path="/s-list" element={<Setting name={'setting'} />} />
           <Route
             path="*"
             element={
