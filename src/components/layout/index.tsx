@@ -5,11 +5,10 @@
  */
 
 import React, { useState } from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 import logo from '../../logo_2x.png';
 import { Layout, Menu } from 'antd'; //Breadcrumb
-
 import routes from '../../common/routes';
 
 const { Header, Content, Footer, Sider } = Layout;
