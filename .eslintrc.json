@@ -29,5 +29,5 @@
       "version": "17"
     }
   },
-  "ignorePatterns": ["scripts/*", "config/*"]
+  "ignorePatterns": ["./scripts/*", "./config/*"]
 }
