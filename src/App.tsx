@@ -3,11 +3,15 @@ import './App.css';
 import LayoutPage from './components/layout';
 
 import { Button, Result } from 'antd';
-import GalleryList from './pages/gallery';
-import GalleryDetail from './pages/gallery/detail';
-import { Setting } from './pages/setting';
-import Login from './pages/login';
+import GalleryList from './containers/gallery';
+import GalleryDetail from './containers/gallery/detail';
+import { Setting } from './containers/setting';
+import Login from './containers/login';
 import { Link, Outlet, Route, Routes } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchUserById } from './store/services/toshl/sclide';
+import { RootState } from './store/store';
 
 const BaseLayout = () => {
   return (
@@ -18,6 +22,13 @@ const BaseLayout = () => {
 };
 
 const App = () => {
+  const user = useSelector((state: RootState) => state.users);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchUserById(3));
+  }, []);
+
+  console.log(user);
   return (
     <Routes>
       <Route path="/" element={<BaseLayout></BaseLayout>}>

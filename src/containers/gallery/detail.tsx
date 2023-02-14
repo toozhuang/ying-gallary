@@ -1,7 +1,7 @@
 /**
  * date: 2022-03-4, Fri, 22:24
  * author: TooZhun9
- * feature： Gallary movie Detail Page
+ * feature： Gallery movie Detail Page
  */
 
 import React, { useState } from 'react';

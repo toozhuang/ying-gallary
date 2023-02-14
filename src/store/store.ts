@@ -7,11 +7,13 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import { galleryApi } from './services/gallery';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+import { usersSlice } from './services/toshl/sclide';
 
 export const createStore = () => {
   return configureStore({
     reducer: {
       [galleryApi.reducerPath]: galleryApi.reducer,
+      [usersSlice.name]: usersSlice.reducer,
     },
     //   TODO: 理解 middleware 的作用
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(galleryApi.middleware),
