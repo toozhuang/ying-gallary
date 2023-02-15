@@ -10,10 +10,15 @@ export const fetchUserById = createAsyncThunk(
   'users/fetchById',
   // if you type your function argument here
   async (userId: number) => {
-    const response = await fetch(`https://reqres.in/api/users/${userId}`);
-    //  as Returned
-    console.log(response);
-    return ((await response.json()) as any).data;
+    try {
+      const response = await fetch(`https://reqres.in/api/users/${userId}`);
+      //  as Returned
+      console.log(response);
+      return ((await response.json()) as any).data;
+    } catch (e) {
+      console.log(e);
+    }
+    return null;
   },
 );
 

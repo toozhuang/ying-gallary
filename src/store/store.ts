@@ -9,6 +9,16 @@ import { galleryApi } from './services/gallery';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { usersSlice } from './services/toshl/sclide';
 
+export const initialState = {
+  isLoading: false,
+  otpVerified: true,
+  otp: '',
+  otpError: false,
+  isLogged: false,
+  errors: [],
+  user: {},
+};
+
 export const createStore = () => {
   return configureStore({
     reducer: {

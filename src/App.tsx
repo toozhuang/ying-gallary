@@ -12,6 +12,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchUserById } from './store/services/toshl/sclide';
 import { RootState } from './store/store';
+import { makeIsLoggedSelector } from './store/selectors';
+import { createStructuredSelector } from 'reselect';
 
 const BaseLayout = () => {
   return (
@@ -23,12 +25,15 @@ const BaseLayout = () => {
 
 const App = () => {
   const user = useSelector((state: RootState) => state.users);
+  const test = useSelector(createStructuredSelector({ isLogged: makeIsLoggedSelector() }));
+
+  console.log('test: ', test);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchUserById(3));
   }, []);
 
-  console.log(user);
+  console.log('my user: ', user);
   return (
     <Routes>
       <Route path="/" element={<BaseLayout></BaseLayout>}>
