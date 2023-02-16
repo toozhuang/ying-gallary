@@ -25,9 +25,9 @@ const BaseLayout = () => {
 
 const App = () => {
   const user = useSelector((state: RootState) => state.users);
-  const test = useSelector(createStructuredSelector({ isLogged: makeIsLoggedSelector() }));
+  // const test = useSelector(createStructuredSelector({ isLogged: makeIsLoggedSelector() }));
 
-  console.log('test: ', test);
+  // console.log('test: ', test);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchUserById(3));
